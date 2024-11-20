@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Modern Design Tool Landing Page",
+  title: "Layers - Modern Design Website Landing Page",
   description: "Created with the help of Frontend Tribe",
   icons: {
     icon: "/favicon.svg",
