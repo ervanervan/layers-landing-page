@@ -26,7 +26,7 @@ export default function LogoTicker() {
         <h2 className="text-center text-white/50 text-xl">
           Already chosen by these market leaders
         </h2>
-        <div className="overflow-hidden mt-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="overflow-hidden mt-12">
           <div className="flex gap-24 pr-24">
             {logos.map((logo) => (
               <Image src={logo.image} key={logo.name} alt={logo.name} />
