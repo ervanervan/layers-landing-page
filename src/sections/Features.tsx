@@ -24,13 +24,14 @@ export default function Features() {
         <div className="flex justify-center">
           <Tag>Features</Tag>
         </div>
-        <h2 className="text-6xl font-medium text-center mt-6">
+        <h2 className="text-6xl font-medium text-center mt-6 max-w-2xl mx-auto">
           Where power meets <span className="text-lime-400">simplicity</span>
         </h2>
-        <div className="mt-12 grid grid-cols-1 gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-8">
           <FeatureCard
             title="Real-time Colaboration"
             description="Work together seamless with conflict-free team editing"
+            className="md:col-span-2 lg:col-span-1"
           >
             <div className="aspect-video flex items-center justify-center">
               <Avatar className="z-40">
@@ -57,6 +58,7 @@ export default function Features() {
           <FeatureCard
             title="Interactive Prototyping"
             description="Engage your clients with prototypes that react to user actions"
+            className="md:col-span-2 lg:col-span-1"
           >
             <div className="flex items-center justify-center aspect-video">
               <p className="text-4xl text-center font-extrabold text-white/20">
@@ -71,6 +73,7 @@ export default function Features() {
           <FeatureCard
             title="Keyboard Quick Actions"
             description="Powerful commands to help you create designs more quickly"
+            className="md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto"
           >
             <div className="flex items-center justify-center aspect-video gap-4">
               <Key className="w-28">shift</Key>
@@ -79,11 +82,16 @@ export default function Features() {
             </div>
           </FeatureCard>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap gap-3 justify-center">
           {features.map((feature) => (
-            <div key={feature}>
-              <span></span>
-              <span>{feature}</span>
+            <div
+              key={feature}
+              className="bg-neutral-900 border-white/10 inline-flex px-3 md:px-5 py-1.5 md:py-2 rounded-2xl gap-3 items-center"
+            >
+              <span className="rounded-full size-5 text-xl inline-flex items-center justify-center bg-lime-400 text-neutral-950">
+                &#10038;
+              </span>
+              <span className="font-medium md:text-lg">{feature}</span>
             </div>
           ))}
         </div>
