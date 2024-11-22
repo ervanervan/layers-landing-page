@@ -1,3 +1,4 @@
+import FeatureCard from "@/components/FeatureCard";
 import Tag from "@/components/Tag";
 
 const features = [
@@ -21,29 +22,18 @@ export default function Features() {
           Where power meets <span className="text-lime-400">simplicity</span>
         </h2>
         <div>
-          <div>
-            <div></div>
-            <div>
-              <h3>Real-time Colaboration</h3>
-              <p>Work together seamless with conflict-free team editing</p>
-            </div>
-          </div>
-          <div>
-            <div></div>
-            <div>
-              <h3>Interactive Prototyping</h3>
-              <p>
-                Engage your clients with prototypes that react to user actions
-              </p>
-            </div>
-          </div>
-          <div>
-            <div></div>
-            <div>
-              <h3>Keyboard Quick Actions</h3>
-              <p>Powerful commands to help you create designs more quickly</p>
-            </div>
-          </div>
+          <FeatureCard
+            title="Real-time Colaboration"
+            description="Work together seamless with conflict-free team editing"
+          />
+          <FeatureCard
+            title="Interactive Prototyping"
+            description="Engage your clients with prototypes that react to user actions"
+          />
+          <FeatureCard
+            title="Keyboard Quick Actions"
+            description="Powerful commands to help you create designs more quickly"
+          />
         </div>
         <div>
           {features.map((feature) => (
