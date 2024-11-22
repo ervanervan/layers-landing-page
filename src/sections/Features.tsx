@@ -31,26 +31,52 @@ export default function Features() {
             title="Real-time Colaboration"
             description="Work together seamless with conflict-free team editing"
           >
-            <div>
-              <Avatar>
-                <Image src={avatar1} alt="Avatar 1" />
+            <div className="aspect-video flex items-center justify-center">
+              <Avatar className="z-40">
+                <Image src={avatar1} alt="Avatar 1" className="rounded-full" />
               </Avatar>
-              <Avatar>
-                <Image src={avatar2} alt="Avatar 2" />
+              <Avatar className="-ml-6 border-indigo-500 z-30">
+                <Image src={avatar2} alt="Avatar 2" className="rounded-full" />
               </Avatar>
-              <Avatar>
-                <Image src={avatar3} alt="Avatar 3" />
+              <Avatar className="-ml-6 border-amber-500 z-20">
+                <Image src={avatar3} alt="Avatar 3" className="rounded-full" />
+              </Avatar>
+              <Avatar className="-ml-6 z-10 border-transparent">
+                <div className="size-full bg-neutral-700 rounded-full inline-flex items-center justify-center gap-1">
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <span
+                      key={i}
+                      className="size-1.5 bg-white rounded-full inline-flex"
+                    ></span>
+                  ))}
+                </div>
               </Avatar>
             </div>
           </FeatureCard>
           <FeatureCard
             title="Interactive Prototyping"
             description="Engage your clients with prototypes that react to user actions"
-          ></FeatureCard>
+          >
+            <div className="flex items-center justify-center aspect-video">
+              <p className="text-4xl text-center font-extrabold text-white/20">
+                We've achieved{" "}
+                <span className="bg-gradient-to-tr from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  incredible
+                </span>{" "}
+                growth this year
+              </p>
+            </div>
+          </FeatureCard>
           <FeatureCard
             title="Keyboard Quick Actions"
             description="Powerful commands to help you create designs more quickly"
-          ></FeatureCard>
+          >
+            <div className="flex items-center justify-center aspect-video">
+              <div>shift</div>
+              <div>alt</div>
+              <div>C</div>
+            </div>
+          </FeatureCard>
         </div>
         <div>
           {features.map((feature) => (
