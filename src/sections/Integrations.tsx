@@ -5,7 +5,7 @@ import slackIcon from "@/assets/images/slack-logo.svg";
 import relumeIcon from "@/assets/images/relume-logo.svg";
 import framerIcon from "@/assets/images/framer-logo.svg";
 import githubIcon from "@/assets/images/github-logo.svg";
-import Image from "next/image";
+import IntegrationColumn from "@/components/IntegrationColumn";
 
 const integrations = [
   {
@@ -46,15 +46,28 @@ export default function Integrations() {
   return (
     <section className="py-24 overflow-hidden">
       <div className="container">
-        <Tag>Integrations</Tag>
-        <h2 className="text-6xl font-medium mt-6">
-          Plays well with <span className="text-lime-400">others</span>
-        </h2>
-        <p className="text-white/50 text-lg mt-4">
-          Layers seamlessly connects with your favorite to it easy to plug into
-          any workflow and collaborate platforms.
-        </p>
-        <div className="h-[400px] mt-8 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"></div>
+        <div className="grid lg:grid-cols-2 items-center lg:gap-16">
+          <div>
+            <Tag>Integrations</Tag>
+            <h2 className="text-6xl font-medium mt-6">
+              Plays well with <span className="text-lime-400">others</span>
+            </h2>
+            <p className="text-white/50 text-lg mt-4">
+              Layers seamlessly connects with your favorite to it easy to plug
+              into any workflow and collaborate platforms.
+            </p>
+          </div>
+
+          <div>
+            <div className="h-[400px] lg:h-[800px] mt-8 lg:mt-0 grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
+              <IntegrationColumn integrations={integrations} />
+              <IntegrationColumn
+                integrations={integrations.slice().reverse()}
+                className="hidden md:flex"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
