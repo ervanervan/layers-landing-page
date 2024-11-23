@@ -1,3 +1,10 @@
 export default function CallToAction() {
-    return <div>Call To Action</div>;
+  return (
+    <section className="py-24">
+      <div>
+        <span>&#10038;</span>
+        <span>Try it for free</span>
+      </div>
+    </section>
+  );
 }
