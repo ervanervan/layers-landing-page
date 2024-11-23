@@ -62,7 +62,7 @@ export default function Features() {
           >
             <div className="flex items-center justify-center aspect-video">
               <p className="text-4xl text-center font-extrabold text-white/20">
-                We've achieved{" "}
+                We&apos;ve achieved{" "}
                 <span className="bg-gradient-to-tr from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   incredible
                 </span>{" "}
