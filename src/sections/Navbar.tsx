@@ -2,7 +2,7 @@
 import Image from "next/image";
 import logoImage from "@/assets/images/logo.svg";
 import Button from "@/components/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -15,11 +15,31 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navbarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.addEventListener("mousedown", handleClickOutside);
+    };
+  });
   return (
     <>
       <section className="py-4 lg:py-8 fixed w-full top-0 z-50">
         <div className="container max-w-5xl">
-          <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop-blur">
+          <div
+            ref={navbarRef}
+            className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop-blur"
+          >
             <div className="grid grid-cols-2 lg:grid-cols-3 p-2 px-4 md:pr-2 items-center">
               <div>
                 <Image
@@ -31,7 +51,11 @@ export default function Navbar() {
               <div className="lg:flex items-center justify-center hidden">
                 <nav className="flex gap-6 font-medium">
                   {navLinks.map((link) => (
-                    <a href={link.href} key={link.label}>
+                    <a
+                      href={link.href}
+                      key={link.label}
+                      onClick={() => setIsOpen(false)}
+                    >
                       {link.label}
                     </a>
                   ))}
@@ -49,6 +73,7 @@ export default function Navbar() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="feather feather-menu md:hidden"
+                  onClick={() => setIsOpen(!isOpen)}
                 >
                   <line
                     x1="3"
@@ -83,12 +108,14 @@ export default function Navbar() {
                 <Button
                   variant="secondary"
                   className="hidden md:inline-flex items-center"
+                  onClick={() => setIsOpen(false)}
                 >
                   Log In
                 </Button>
                 <Button
                   variant="primary"
                   className="hidden md:inline-flex items-center"
+                  onClick={() => setIsOpen(false)}
                 >
                   Sign Up
                 </Button>
@@ -104,12 +131,23 @@ export default function Navbar() {
                 >
                   <div className="flex flex-col items-center gap-4 py-4">
                     {navLinks.map((link) => (
-                      <a href={link.href} key={link.label}>
+                      <a
+                        href={link.href}
+                        key={link.label}
+                        onClick={() => setIsOpen(false)}
+                      >
                         {link.label}
                       </a>
                     ))}
-                    <Button variant="secondary">Log In</Button>
-                    <Button variant="primary">Sign Un</Button>
+                    <Button
+                      variant="secondary"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Log In
+                    </Button>
+                    <Button variant="primary" onClick={() => setIsOpen(false)}>
+                      Sign Un
+                    </Button>
                   </div>
                 </motion.div>
               )}
